@@ -11,9 +11,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- <script src="assets/jquery-1.12.4.js"></script> -->
-  <script src="assets/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-  <link rel="stylesheet" href="assets/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 </head>
 <body>
@@ -23,7 +23,7 @@
 
     <script>
         $(document).ready(function() {
-          
+          console.log('hi');
           $('#list').DataTable({
             "order": [[ 0, "desc" ]]
           });
