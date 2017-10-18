@@ -18,7 +18,10 @@ export class EditComponent{
     ngOnInit() : void {
         this._http.post('http://localhost:53973/api/Default/Edit', new IEmail(localStorage.getItem('email'), ''))
         .map((response: Response) => <IEmail[]>response.json())
-        .subscribe(iproducts => this.iproducts = iproducts,function(error){alert('failure')});
+        .subscribe(
+            iproducts => this.iproducts = iproducts,
+            function(error){this._router.navigate(['PageNotFound'])}
+        );
 
         localStorage.removeItem('email');
     }
@@ -27,7 +30,7 @@ export class EditComponent{
         this._http.post('http://localhost:53973/api/Default/Upsert',new IEmail(this.iproducts.Registers[0].Email,this.iproducts.Registers[0].Password))
         .subscribe(
             data => this.router.navigate(['List']),
-            err => alert('failure')
+            err => this._router.navigate(['PageNotFound'])
         );
     }
 
@@ -37,7 +40,7 @@ export class EditComponent{
         this._http.post('http://localhost:53973/api/Default/Delete',new IEmail(email,''))
         .do(
             data => alert(email + 'Deleted successfully'),
-            err => alert('failure')
+            err => this._router.navigate(['PageNotFound'])
         )
     }
 

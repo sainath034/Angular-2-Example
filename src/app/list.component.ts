@@ -6,6 +6,8 @@ import { IEmail } from './email';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
 
+import 'assets/list.js'
+
 @Component({
     selector: 'list',
     templateUrl: './list.component.html',
