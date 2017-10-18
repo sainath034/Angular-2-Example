@@ -18,8 +18,7 @@ export class EmailService {
         return this._http.get(this._producturl)
             .map((response: Response) => <IEmail[]>response.json())
             .do(
-            data => console.log(JSON.stringify(data)),
-            err => this._router.navigate(['PageNotFound'])
+            data => console.log(JSON.stringify(data))
             )
             .catch(this.handleError);
     }
